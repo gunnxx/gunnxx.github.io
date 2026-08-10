@@ -34,6 +34,8 @@ Figures and clips are not committed. Each `figure.fig` block shows a dashed
 placeholder with the expected filename until the file is added:
 
 - `assets/projects/clear/` — `figure1.png`, `table2.png`, `table3.png`, `qualitative.png`
-- `assets/projects/palapa-707/` — the four `VID_*.mp4` clips (currently captions only)
 
 Drop a file at the named path and the placeholder is replaced automatically.
+
+The PALAPA-707 clips are embedded from Google Drive and need no local files. They
+render only while those Drive files stay shared publicly ("anyone with the link").
