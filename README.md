@@ -21,8 +21,9 @@ Push to `main`. GitHub Pages serves a user site from the repository root
 ## Editing
 
 Content sections in `index.html`, in order: hero/about, Education, Experience,
-Publications, Projects, Scholarships & Awards, Skills, Online Certifications.
+Publications, Projects, Scholarships & Awards.
 Publications use `pub-label` prefixes — `C` conference, `W` workshop, `P` preprint.
+Styles live in `assets/style.css`, shared by every page.
 
 ## Project pages
 
