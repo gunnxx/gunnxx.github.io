@@ -182,7 +182,7 @@ figure.fig figcaption b { color: var(--c-ink); font-weight: 650; }
 .qual-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 168px)); gap: 0.5rem 1.85rem; justify-content: start; }
 .qual-grid figure { margin: 0; }
 .qual-grid figcaption { font-size: 0.78rem; color: var(--c-ink-2); text-align: center; margin-top: 0.35rem; }
-.qual-grid img {
+.qual-grid img, .qual-grid video {
     width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--c-line);
     image-rendering: pixelated; background: #0b0f18;
 }
