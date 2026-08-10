@@ -30,12 +30,9 @@ Styles live in `assets/style.css`, shared by every page.
 `projects/clear/` and `projects/palapa-707/` are standalone pages sharing
 `assets/style.css` with the homepage.
 
-Figures and clips are not committed. Each `figure.fig` block shows a dashed
-placeholder with the expected filename until the file is added:
-
-- `assets/projects/clear/` — `figure1.png`, `table2.png`, `table3.png`, `qualitative.png`
-
-Drop a file at the named path and the placeholder is replaced automatically.
+CLEAR figures live in `assets/projects/clear/` (~15 MB, mostly the six
+qualitative-rollout GIFs, which are lazy-loaded). The GIFs are 84×84 as authored
+and are upscaled with `image-rendering: pixelated`.
 
 The PALAPA-707 clips are embedded from Google Drive and need no local files. They
 render only while those Drive files stay shared publicly ("anyone with the link").

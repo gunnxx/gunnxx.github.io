@@ -70,23 +70,43 @@
                 remove distraction from its representation despite having an information bottleneck term.
                 Quantitatively, training TD3+BC [4] on top of representations learned via SLAC [1] shows a decrease in
                 performance once distractions are introduced (see the Experiment section below for the setup).</p>
+        </div>
 
+        <figure class="fig">
+            <div class="fig-frame tight">
+                <img src="../../assets/projects/clear/motivation.png"
+                     alt="Scores for TD3+BC on SLAC representations across Clean, Video, and 2x2 Grid settings">
+            </div>
+            <figcaption>TD3+BC trained on top of SLAC representations degrades sharply once distractions are
+                introduced.</figcaption>
+        </figure>
+
+        <div class="prose">
             <p>We propose to model the distraction explicitly, thus we will have two stochastic encoders. The two
                 encoders are trained to optimize (1) predictive information, (2) impose Markovian representation, and
                 (3) impose disentangled representations between the two sets of representations. The simple variational
                 lower-bound of the proposed objective amounts to cooperative reconstruction along with bottleneck terms
                 for each representation.</p>
+        </div>
 
+        <figure class="fig">
+            <div class="fig-frame tight">
+                <img src="../../assets/projects/clear/objective.png"
+                     alt="The CLEAR objective and its variational lower bound">
+            </div>
+            <figcaption>The training objective, combining a predictive-information term, a Markovian objective, and a
+                disentanglement objective, together with its variational lower bound.</figcaption>
+        </figure>
+
+        <div class="prose">
             <p>We then regularize the two sets of representations by their controllability by action. We formalize this
                 as: transitions of representations are predictive of action for the agent part, and vice versa (a
                 min-max optimization). Our method is illustrated in Figure 1 below.</p>
         </div>
 
         <figure class="fig">
-            <div class="fig-slot">
-                <img src="../../assets/projects/clear/figure1.png" alt="Overview of CLEAR"
-                     onerror="this.remove()">
-                <span class="pending">figure1.png</span>
+            <div class="fig-frame">
+                <img src="../../assets/projects/clear/figure1.png" alt="Overview of CLEAR">
             </div>
             <figcaption><b>Figure 1.</b> Overview of CLEAR. (a) Given a sequence of observations and actions, two
                 sequences of representations are extracted via two sets of encoders. Then, the two sets of
@@ -113,19 +133,15 @@
         </div>
 
         <figure class="fig">
-            <div class="fig-slot">
-                <img src="../../assets/projects/clear/table2.png" alt="Average normalized score"
-                     onerror="this.remove()">
-                <span class="pending">table2.png</span>
+            <div class="fig-frame">
+                <img src="../../assets/projects/clear/table2.png" alt="Average normalized score">
             </div>
             <figcaption><b>Table 2.</b> Average normalized score and its std. error over 5 seeds.</figcaption>
         </figure>
 
         <figure class="fig">
-            <div class="fig-slot">
-                <img src="../../assets/projects/clear/table3.png" alt="Ground-truth state regression MSE"
-                     onerror="this.remove()">
-                <span class="pending">table3.png</span>
+            <div class="fig-frame">
+                <img src="../../assets/projects/clear/table3.png" alt="Ground-truth state regression MSE">
             </div>
             <figcaption><b>Table 3.</b> Average MSE and its std. deviation over 5 seeds on the ground-truth state
                 regression task using a linear model.</figcaption>
@@ -139,15 +155,36 @@
                 respectively.</p>
         </div>
 
-        <figure class="fig">
-            <div class="fig-slot">
-                <img src="../../assets/projects/clear/qualitative.png" alt="Qualitative disentanglement results"
-                     onerror="this.remove()">
-                <span class="pending">qualitative.png</span>
-            </div>
-            <figcaption>Qualitative results for the Video and 2x2 Grid distraction cases. Columns: original
-                observation, reconstructed agent-centric part, reconstructed distraction part.</figcaption>
-        </figure>
+        <div class="qual-label">Single Video distraction</div>
+        <div class="qual-grid">
+            <figure>
+                <img src="../../assets/projects/clear/qual-video-observation.gif" alt="Original observation, Single Video distraction" loading="lazy">
+                <figcaption>Original observation</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/projects/clear/qual-video-agent.gif" alt="Reconstructed agent-centric part, Single Video distraction" loading="lazy">
+                <figcaption>Reconstructed agent-centric part</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/projects/clear/qual-video-distraction.gif" alt="Reconstructed distraction part, Single Video distraction" loading="lazy">
+                <figcaption>Reconstructed distraction part</figcaption>
+            </figure>
+        </div>
+        <div class="qual-label">2x2 Grid distraction</div>
+        <div class="qual-grid">
+            <figure>
+                <img src="../../assets/projects/clear/qual-grid-observation.gif" alt="Original observation, 2x2 Grid distraction" loading="lazy">
+                <figcaption>Original observation</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/projects/clear/qual-grid-agent.gif" alt="Reconstructed agent-centric part, 2x2 Grid distraction" loading="lazy">
+                <figcaption>Reconstructed agent-centric part</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/projects/clear/qual-grid-distraction.gif" alt="Reconstructed distraction part, 2x2 Grid distraction" loading="lazy">
+                <figcaption>Reconstructed distraction part</figcaption>
+            </figure>
+        </div>
     </section>
 
     <section>
