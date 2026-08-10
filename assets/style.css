@@ -171,11 +171,16 @@ figure.fig figcaption b { color: var(--c-ink); font-weight: 650; }
     padding: 0.7rem; text-align: center;
 }
 .fig-frame img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 4px; }
+/* widths mirror the original project page's proportions relative to its text column */
+.fig-frame img.w-48 { width: 48%; }
+.fig-frame img.w-74 { width: 74%; }
 .fig-frame.tight { padding: 0.5rem 0.7rem; }
 
 /* qualitative comparison grid: 84x84 rollouts upscaled */
 .qual-label { font-family: var(--font-rec); font-size: 0.75rem; color: var(--c-blue); margin: 1rem 0 0.35rem; }
-.qual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+/* the original renders these 84px rollouts at exactly 2x, three across, left-aligned */
+.qual-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 168px)); gap: 0.5rem 1.85rem; justify-content: start; }
+.qual-grid figure { margin: 0; }
 .qual-grid figcaption { font-size: 0.78rem; color: var(--c-ink-2); text-align: center; margin-top: 0.35rem; }
 .qual-grid img {
     width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--c-line);
