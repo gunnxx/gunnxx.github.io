@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PALAPA-707 — Tri Wahyu Guntara</title>
+<meta name="description" content="PALAPA-707: an autonomous VTOL drone built by Universitas Indonesia for the Indonesia Flying Robot Contest 2018.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="topnav">
+    <div class="container">
+        <a class="brand" href="../../">Tri Wahyu Guntara</a>
+        <nav>
+            <a href="../../#about">About</a>
+            <a href="../../#cv">CV</a>
+            <a href="../../#publications">Publications</a>
+            <a href="../../#projects">Projects</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-head">
+        <div class="page-kicker">PROJECT</div>
+        <h1 class="page-title">PALAPA-707: An Autonomous VTOL Drone for the Indonesia Flying Robot Contest 2018</h1>
+        <div class="page-authors">
+            <span class="me">Tri Wahyu Guntara</span>, Mahdi Yusuf, Sandikha Rahardi, Rafly Notonegoro, Yosral Rizal
+        </div>
+        <div class="page-meta">Universitas Indonesia · Honorable Mention, VTOL Category · 2018</div>
+        <div class="page-badges">
+            <a href="https://github.com/gunnxx/palapa707" target="_blank" rel="noopener" class="pub-badge pub-badge-code"><i class="fas fa-code"></i> source code</a>
+        </div>
+    </div>
+
+    <section>
+        <h2 class="section-title">Overview</h2>
+        <div class="prose">
+            <p>PALAPA-707 was the Universitas Indonesia entry to the Indonesia Flying Robot Contest 2018, competing in
+                the Vertical Take-Off and Landing category. The contest required the vehicle to complete three
+                objectives <strong>autonomously</strong>:</p>
+            <ol>
+                <li>drop a pre-loaded payload at a designated location;</li>
+                <li>pick up an additional payload; and</li>
+                <li>drop the retrieved payload at a second location.</li>
+            </ol>
+            <p>The final two objectives carried the largest share of the points, the first being comparatively
+                straightforward. The rules also constrained the airframe dimensions, total weight, and battery
+                capacity.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Approach</h2>
+        <div class="prose">
+            <p>The control stack was deliberately simple: a <strong>PID controller</strong> for flight control, paired
+                with <strong>colour and shape detection</strong> from the onboard camera for target acquisition.</p>
+            <p>The principal difficulty was not algorithmic but mechanical. Barometer and GPS readings proved
+                unreliable, largely a consequence of low-cost hardware. As a team of undergraduates with limited
+                hardware experience, we converged on a working design empirically, iterating through several payload
+                actuation mechanisms — a plain magnet, an electromagnet, and a claw-style gripper — before settling on
+                a <strong>flap</strong> mechanism, shown in the first clip below on its first successful run.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot"><span class="pending">VID_20181026_165619.mp4</span></div>
+            <figcaption>First successful payload release using the flap mechanism.</figcaption>
+        </figure>
+
+        <div class="prose">
+            <p>The flap mechanism remained imperfect. Numerous attempts prior to it ended in crashes, and failures
+                persisted afterwards; the clip below records one such case.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot"><span class="pending">VID_20181026_173530.mp4</span></div>
+            <figcaption>A representative failure case during payload actuation testing.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2 class="section-title">Competition</h2>
+        <div class="prose">
+            <p>The contest was held in Kota Baru, Lampung Province, where each team was given two attempts. Two
+                conditions we had not anticipated proved decisive. First, the competition field was not level as
+                specified, which degraded the shape-detection system's ability to localise the targets — in the trial
+                below, the drone fails to detect the second payload.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot"><span class="pending">VID_20181107_110141.mp4</span></div>
+            <figcaption>Second trial at the competition site. The uneven field disrupted target detection.</figcaption>
+        </figure>
+
+        <div class="prose">
+            <p>Second, the flap mechanism left the airframe somewhat unstable, and all of our testing had been
+                conducted on campus under calm conditions. Our first attempt fell in a window of considerably harsher
+                wind, which the vehicle was never tuned for. We flew it regardless and damaged the airframe
+                substantially — leaving a great deal of repair work between the two attempts.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot"><span class="pending">VID_20181106_161944.mp4</span></div>
+            <figcaption>First trial, flown under significantly harsher wind conditions than any prior test.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2 class="section-title">Result</h2>
+        <div class="prose">
+            <p>Only two teams completed the final two missions, and PALAPA-707 was one of them; the other took first
+                place overall. We finished with an <strong>Honorable Mention</strong> — a result the team remains proud
+                of, given the constraints we worked under.</p>
+        </div>
+        <a class="backlink" href="../../#projects"><i class="fas fa-arrow-left"></i> All projects</a>
+    </section>
+</main>
+
+<footer>
+    <div class="container">© Tri Wahyu Guntara</div>
+</footer>
+</body>
+</html>

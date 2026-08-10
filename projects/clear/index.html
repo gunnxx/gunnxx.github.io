@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLEAR — Tri Wahyu Guntara</title>
+<meta name="description" content="CLEAR: An Information-Theoretic Framework for Distraction-Free Representation Learning in Visual Offline RL.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="topnav">
+    <div class="container">
+        <a class="brand" href="../../">Tri Wahyu Guntara</a>
+        <nav>
+            <a href="../../#about">About</a>
+            <a href="../../#cv">CV</a>
+            <a href="../../#publications">Publications</a>
+            <a href="../../#projects">Projects</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <div class="page-head">
+        <div class="page-kicker">PROJECT</div>
+        <h1 class="page-title">CLEAR: An Information-Theoretic Framework for Distraction-Free Representation Learning in Visual Offline RL</h1>
+        <div class="page-authors">
+            <span class="me">Tri Wahyu Guntara</span>,
+            <a href="https://sites.google.com/view/daikieddymatsunaga" target="_blank" rel="noopener">Daiki E. Matsunaga</a>,
+            HyeongJoo Hwang,
+            <a href="https://ailab.kaist.ac.kr/people/kekim" target="_blank" rel="noopener">Kee-Eung Kim</a>
+        </div>
+        <div class="page-meta">Preprint</div>
+        <div class="page-badges">
+            <a href="https://openreview.net/forum?id=Pui7Sa6Jwi" target="_blank" rel="noopener" class="pub-badge pub-badge-paper"><i class="fas fa-file-lines"></i> paper</a>
+            <a href="https://anonymous.4open.science/r/anonymous-clear-EFFC/README.md" target="_blank" rel="noopener" class="pub-badge pub-badge-code"><i class="fas fa-code"></i> code</a>
+        </div>
+    </div>
+
+    <section>
+        <h2 class="section-title">Abstract</h2>
+        <div class="prose abstract">
+            <p>Visual offline RL aims to learn an optimal policy for visual domains, solely from the pre-collected
+                dataset comprised of actions taken on visual observations. Prior works on visual RL typically learn a
+                dynamics model by extracting a latent state representation. However, the learned representation would
+                contain factors irrelevant to control when there are distractions in the visual observations. These
+                nuisance factors introduced by the distraction further exacerbates the difficulties of learning a good
+                policy in the offline RL setting. In this paper, we propose <strong>CLEAR</strong>
+                (<strong>C</strong>ontrollable <strong>L</strong>atent State <strong>E</strong>xtr<strong>A</strong>cto<strong>R</strong>)
+                for visual offline RL, which learns the dynamics model of a succinct agent-centric state representation
+                that is robust to distractions. This is achieved by maximizing predictive information, imposing the
+                Markov property of latent state transitions and disentangling the agent and distractions using an
+                information-theoretic approach. More concretely, we exploit the fact that distractions are not
+                influenced or controlled by actions to regularize our training. We empirically demonstrate that CLEAR
+                is able to outperform baselines on the DeepMind Control Suite with various degrees of distractions and
+                perform consistently well across these distractions. We further provide qualitative analysis on the
+                results showing that our approach successfully disentangles the distraction factors from the
+                agent-centric state representation.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">CLEAR: Controllable Latent State Extractor</h2>
+        <div class="prose">
+            <p>Under the presence of distraction (formalized as a POMDP with exogenous variables), prior approaches
+                that aim to learn a single latent state representation using a stochastic encoder [1, 2, 3] fail to
+                remove distraction from its representation despite having an information bottleneck term.
+                Quantitatively, training TD3+BC [4] on top of representations learned via SLAC [1] shows a decrease in
+                performance once distractions are introduced (see the Experiment section below for the setup).</p>
+
+            <p>We propose to model the distraction explicitly, thus we will have two stochastic encoders. The two
+                encoders are trained to optimize (1) predictive information, (2) impose Markovian representation, and
+                (3) impose disentangled representations between the two sets of representations. The simple variational
+                lower-bound of the proposed objective amounts to cooperative reconstruction along with bottleneck terms
+                for each representation.</p>
+
+            <p>We then regularize the two sets of representations by their controllability by action. We formalize this
+                as: transitions of representations are predictive of action for the agent part, and vice versa (a
+                min-max optimization). Our method is illustrated in Figure 1 below.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot">
+                <img src="../../assets/projects/clear/figure1.png" alt="Overview of CLEAR"
+                     onerror="this.remove()">
+                <span class="pending">figure1.png</span>
+            </div>
+            <figcaption><b>Figure 1.</b> Overview of CLEAR. (a) Given a sequence of observations and actions, two
+                sequences of representations are extracted via two sets of encoders. Then, the two sets of
+                representations are decoded to reconstruct the observations and do inverse dynamics prediction.
+                (b) The decoder which reconstructs observations has a compositional structure.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2 class="section-title">Experiment</h2>
+        <div class="prose">
+            <p>We evaluate our algorithm on three sets of environments from the DeepMind Control Suite:
+                <strong>Hopper-Hop</strong>, <strong>Walker-Walk</strong>, and <strong>Cheetah-Run</strong>. For each
+                dataset, we generate four levels of varying difficulties of distractions by adjusting the types of
+                distractions present in the observation (<strong>Clean</strong>, <strong>Single Video</strong>,
+                <strong>Multiple Videos</strong>, <strong>2x2 Grid</strong>). The controllable part of the observation
+                of the 2x2 Grid distraction level is the agent placed on the top-left corner, while the other agents
+                are executed using a uniform random policy.</p>
+
+            <p>Quantitatively, our representation learning method is suitable for offline RL, achieving almost
+                invariant performance across different distractions (Table 2). Our representation learning method is
+                also informative about the ground-truth state, shown by the low validation error on the ground-truth
+                state linear regression task (Table 3).</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot">
+                <img src="../../assets/projects/clear/table2.png" alt="Average normalized score"
+                     onerror="this.remove()">
+                <span class="pending">table2.png</span>
+            </div>
+            <figcaption><b>Table 2.</b> Average normalized score and its std. error over 5 seeds.</figcaption>
+        </figure>
+
+        <figure class="fig">
+            <div class="fig-slot">
+                <img src="../../assets/projects/clear/table3.png" alt="Ground-truth state regression MSE"
+                     onerror="this.remove()">
+                <span class="pending">table3.png</span>
+            </div>
+            <figcaption><b>Table 3.</b> Average MSE and its std. deviation over 5 seeds on the ground-truth state
+                regression task using a linear model.</figcaption>
+        </figure>
+
+        <div class="prose">
+            <p>Qualitatively, we can inspect the learned agent-centric representation and the learned distraction
+                representation, since we use a compositional decoder as mentioned in Figure 1. We show the qualitative
+                result for the Video and 2x2 Grid distraction cases below, where the columns show the original
+                observation, the reconstructed agent-centric part, and the reconstructed distraction part,
+                respectively.</p>
+        </div>
+
+        <figure class="fig">
+            <div class="fig-slot">
+                <img src="../../assets/projects/clear/qualitative.png" alt="Qualitative disentanglement results"
+                     onerror="this.remove()">
+                <span class="pending">qualitative.png</span>
+            </div>
+            <figcaption>Qualitative results for the Video and 2x2 Grid distraction cases. Columns: original
+                observation, reconstructed agent-centric part, reconstructed distraction part.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2 class="section-title">References</h2>
+        <ol class="refs">
+            <li>Alex X. Lee, Anusha Nagabandi, Pieter Abbeel, and Sergey Levine. Stochastic latent actor-critic: Deep
+                reinforcement learning with a latent variable model. In <i>Advances in Neural Information Processing
+                Systems</i>, volume 33, pages 741–752, 2020.</li>
+            <li>Danijar Hafner, Timothy Lillicrap, Ian Fischer, Ruben Villegas, David Ha, Honglak Lee, and James
+                Davidson. Learning latent dynamics for planning from pixels. In <i>Proceedings of the 36th
+                International Conference on Machine Learning</i>, volume 97 of Proceedings of Machine Learning
+                Research, pages 2555–2565. PMLR, 09–15 Jun 2019.</li>
+            <li>Danijar Hafner, Timothy Lillicrap, Jimmy Ba, and Mohammad Norouzi. Dream to control: Learning behaviors
+                by latent imagination. In <i>International Conference on Learning Representations</i>, 2020.</li>
+            <li>Scott Fujimoto and Shixiang Gu. A minimalist approach to offline reinforcement learning. In
+                <i>Advances in Neural Information Processing Systems</i>, 2021.</li>
+        </ol>
+        <a class="backlink" href="../../#projects"><i class="fas fa-arrow-left"></i> All projects</a>
+    </section>
+</main>
+
+<footer>
+    <div class="container">© Tri Wahyu Guntara</div>
+</footer>
+</body>
+</html>
