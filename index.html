@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tri Wahyu Guntara</title>
+<meta name="description" content="Tri Wahyu Guntara — M.S. in AI, KAIST. Reinforcement learning, representation learning, and sequential decision making.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    :root {
+        --c-bg: #ffffff; --c-surface: #ffffff;
+        --c-ink: #17233b; --c-ink-2: #57627a; --c-ink-3: #93a2b8;
+        --c-line: #e3e8f0; --c-line-strong: #ccd5e3;
+        --c-blue: #0d4ea6; --c-blue-deep: #0a3c80; --c-blue-soft: #edf3fb;
+        --c-green: #17753c; --c-green-soft: #e8f5ec;
+        --c-amber: #93540b; --c-amber-soft: #fdf2dd;
+        --font-ui: 'Pretendard Variable', Pretendard, -apple-system, 'Segoe UI', sans-serif;
+        --font-rec: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--c-bg); color: var(--c-ink); font-family: var(--font-ui); line-height: 1.6; }
+    a { color: var(--c-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.2rem; }
+    .rec { font-family: var(--font-rec); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+
+    /* top nav */
+    .topnav {
+        position: sticky; top: 0; z-index: 20;
+        background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(8px);
+        border-bottom: 1px solid var(--c-line);
+    }
+    .topnav .container { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .topnav .brand { font-weight: 800; letter-spacing: -0.02em; color: var(--c-ink); }
+    .topnav nav { display: flex; gap: 1.3rem; font-size: 0.92rem; font-weight: 550; }
+    .topnav nav a { color: var(--c-ink-2); }
+    .topnav nav a:hover { color: var(--c-blue); text-decoration: none; }
+
+    /* hero */
+    .hero { padding: 2.6rem 0 1.6rem; }
+    .hero-grid { display: grid; grid-template-columns: 190px 1fr; gap: 2rem; align-items: start; }
+    .hero-photo-slot {
+        width: 190px; height: 190px; border-radius: 14px; border: 1px solid var(--c-line);
+        background: var(--c-blue-soft); position: relative; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo-slot::after {
+        content: 'TWG'; font-family: var(--font-rec); font-weight: 700; font-size: 2rem;
+        color: var(--c-line-strong); letter-spacing: 0.05em;
+    }
+    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .hero-name { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.2rem; }
+    .hero-title { font-size: 1.05rem; color: var(--c-blue); font-weight: 600; margin-bottom: 0.9rem; }
+    .hero-bio { color: var(--c-ink-2); margin-bottom: 1rem; }
+    .hero-contact { font-size: 0.9rem; color: var(--c-ink-2); margin-bottom: 0.6rem; }
+    .hero-contact .rec { color: var(--c-ink); }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+    .hero-link {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        border: 1px solid var(--c-line-strong); border-radius: 8px;
+        padding: 0.35rem 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--c-ink);
+    }
+    .hero-link:hover { background: var(--c-blue-soft); border-color: var(--c-blue); color: var(--c-blue-deep); text-decoration: none; }
+
+    /* availability notice */
+    .notice {
+        margin: 1.4rem 0 0; border: 1px solid var(--c-line-strong); background: var(--c-blue-soft);
+        border-radius: 12px; padding: 1rem 1.2rem; color: var(--c-ink);
+    }
+    .notice b { color: var(--c-blue-deep); }
+    .notice a { font-weight: 600; }
+
+    /* sections */
+    section { padding-bottom: 0.6rem; }
+    .section-title {
+        font-size: 1.15rem; font-weight: 750; letter-spacing: -0.01em; color: var(--c-ink);
+        margin: 2rem 0 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--c-line-strong);
+    }
+
+    /* CV rows: mono period on the left, content on the right */
+    .cv-row { display: flex; gap: 1.1rem; padding: 0.35rem 0; }
+    .cv-period { flex: 0 0 9.5rem; font-family: var(--font-rec); font-size: 0.78rem; color: var(--c-blue); padding-top: 0.15rem; white-space: nowrap; }
+    .cv-body { min-width: 0; }
+    .cv-role { font-weight: 600; color: var(--c-ink); }
+    .cv-org { color: var(--c-ink-2); }
+    .cv-note { font-size: 0.88rem; color: var(--c-ink-3); }
+    .cv-thesis { font-size: 0.88rem; color: var(--c-ink-2); font-style: normal; }
+    .cv-list { list-style: none; padding: 0; margin: 0; }
+    .cv-bullets { margin: 0.2rem 0 0; padding-left: 1.05rem; font-size: 0.9rem; color: var(--c-ink-2); }
+    .cv-bullets li { padding: 0.05rem 0; }
+    .cv-bullets::marker, .cv-bullets li::marker { color: var(--c-ink-3); }
+
+    .svc-row { padding: 0.22rem 0; font-size: 0.95rem; line-height: 1.5; }
+    .svc-venue { font-weight: 550; color: var(--c-ink); margin-right: 0.6rem; }
+    .svc-roles { color: var(--c-ink-2); }
+
+    /* publications */
+    .year-group { margin-bottom: 0.9rem; }
+    .pub-list { list-style: none; padding: 0; margin: 0; }
+    .pub-item { padding: 0.8rem 0; border-bottom: 1px solid var(--c-line); }
+    .pub-item:first-child { padding-top: 0.3rem; }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title { font-size: 1rem; font-weight: 650; letter-spacing: -0.01em; color: var(--c-ink); line-height: 1.4; margin-bottom: 0.28rem; }
+    .pub-label {
+        font-family: var(--font-rec); font-size: 0.72rem; font-weight: 700; color: var(--c-blue);
+        background: var(--c-blue-soft); padding: 0.08rem 0.4rem; border-radius: 5px;
+        margin-right: 0.5rem; vertical-align: 0.12em; white-space: nowrap;
+        user-select: none; -webkit-user-select: none;
+    }
+    .pub-authors { font-size: 0.9rem; color: var(--c-ink-2); line-height: 1.55; margin-bottom: 0.25rem; }
+    .pub-authors a { color: var(--c-ink); font-weight: 550; }
+    .pub-authors a:hover { color: var(--c-blue); }
+    .pub-authors .me { color: var(--c-ink); font-weight: 700; }
+    .pub-venue { font-family: var(--font-rec); font-size: 0.8rem; color: var(--c-ink-3); }
+    .pub-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.45rem; }
+    .pub-badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.22rem 0.6rem; border-radius: 6px; font-size: 0.74rem; font-weight: 600; border: 1px solid transparent; }
+    .pub-badge-paper   { background: var(--c-blue-soft);  color: var(--c-blue);  border-color: #d5e2f3; }
+    .pub-badge-code    { background: var(--c-green-soft); color: var(--c-green); border-color: #c7e6d1; }
+    .pub-badge-website { background: #e9f6fa;             color: #0e7490;        border-color: #c5e8f0; }
+    .pub-badge-award   { background: var(--c-amber-soft); color: var(--c-amber); border-color: #f3ddb0; }
+
+    footer { border-top: 1px solid var(--c-line); margin-top: 2.5rem; padding: 1.4rem 0 2.5rem; color: var(--c-ink-3); font-size: 0.85rem; }
+
+    @media (max-width: 640px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .hero-photo-slot { width: 140px; height: 140px; }
+        .cv-row { flex-direction: column; gap: 0.15rem; }
+        .cv-period { flex: none; padding-top: 0; }
+        .topnav nav { gap: 0.9rem; }
+    }
+</style>
+</head>
+<body>
+<header class="topnav">
+    <div class="container">
+        <span class="brand">Tri Wahyu Guntara</span>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#cv">CV</a>
+            <a href="#publications">Publications</a>
+            <a href="#projects">Projects</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero / About -->
+    <section class="hero" id="about">
+        <div class="hero-grid">
+            <div>
+                <!-- Drop a square headshot at assets/photo.jpg; the initials placeholder shows until then. -->
+                <div class="hero-photo-slot">
+                    <img class="hero-photo" src="assets/photo.jpg" alt="Tri Wahyu Guntara"
+                         onerror="this.style.display='none'">
+                </div>
+            </div>
+            <div>
+                <h1 class="hero-name">Tri Wahyu Guntara</h1>
+                <div class="hero-title">M.S. in Artificial Intelligence, KAIST</div>
+                <p class="hero-bio">I am a recent graduate (Spring 2024) of the research-based master's program at
+                    The Kim Jaechul Graduate School of AI, KAIST, where I was very fortunate to be advised by
+                    <a href="https://ailab.kaist.ac.kr/people/kekim" target="_blank" rel="noopener">Kee-Eung Kim</a>.
+                    My research is in reinforcement learning — representation learning for visual offline RL and
+                    off-policy evaluation — with earlier work in natural language processing and robotics.</p>
+                <div class="hero-contact">
+                    <i class="fas fa-envelope" style="color:var(--c-ink-3)"></i>
+                    <a class="rec" href="mailto:wahyu.guntara@gmail.com">wahyu.guntara@gmail.com</a>
+                </div>
+                <div class="hero-links">
+                    <a class="hero-link" href="https://github.com/gunnxx" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                    <a class="hero-link" href="https://www.linkedin.com/in/wahyuguntara/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="notice">
+            <b>I am looking for an opportunity to build something exciting!</b>
+            Feel free to <a href="mailto:wahyu.guntara@gmail.com">reach out</a> — I am happy to chat about
+            reinforcement learning, applied ML, or anything in between.
+        </div>
+    </section>
+
+    <!-- CV: Education → Experience → Awards → Skills -->
+    <section id="cv">
+        <h2 class="section-title">Education</h2>
+
+        <div class="cv-row">
+            <div class="cv-period">2021.09 - 2024.08</div>
+            <div class="cv-body">
+                <span class="cv-role">M.S. in Artificial Intelligence</span>,
+                <span class="cv-org">Korea Advanced Institute of Science and Technology (KAIST)</span>
+                <span class="cv-note">(GPA 3.78/4.3, Advisor: Kee-Eung Kim)</span>
+                <div class="cv-thesis">Thesis: Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
+                <div class="cv-note">Key courses: Deep Learning, Deep Reinforcement Learning, Advanced Topics in Deep
+                    Reinforcement Learning, Bayesian Machine Learning, The Principles and Applications of the Kalman
+                    Filter, Intelligent Robot Design Lab</div>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2016.09 - 2020.08</div>
+            <div class="cv-body">
+                <span class="cv-role">B.Eng. in Electrical Engineering</span>,
+                <span class="cv-org">Universitas Indonesia</span>
+                <span class="cv-note">(GPA 3.86/4.0)</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Experience</h2>
+
+        <div class="cv-row">
+            <div class="cv-period">2023.01 - 2024.08</div>
+            <div class="cv-body">
+                <span class="cv-role">Graduate Student Research Assistant</span>,
+                <span class="cv-org"><a href="https://ailab.kaist.ac.kr/" target="_blank" rel="noopener">AIPR Lab</a>, KAIST Graduate School of AI</span>
+                <span class="cv-note">South Korea</span>
+                <ul class="cv-bullets">
+                    <li>Reinforcement learning and thesis project under the advisory of Prof. Kee-Eung Kim</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2022.01 - 2022.12</div>
+            <div class="cv-body">
+                <span class="cv-role">Graduate Student Research Assistant</span>,
+                <span class="cv-org"><a href="https://ave.kaist.ac.kr/" target="_blank" rel="noopener">AVE Lab</a>, KAIST School of Mobility</span>
+                <span class="cv-note">South Korea</span>
+                <ul class="cv-bullets">
+                    <li>Self-driving car and reinforcement learning under the advisory of Prof. Seung-Hyun Kong</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2019.06 - 2019.12</div>
+            <div class="cv-body">
+                <span class="cv-role">Research Scientist Intern</span>,
+                <span class="cv-org"><a href="https://kata.ai/" target="_blank" rel="noopener">Kata.ai</a></span>
+                <span class="cv-note">Indonesia</span>
+                <ul class="cv-bullets">
+                    <li>Benchmarked models on Indonesian sequence labeling tasks (POS tagging, NER, SRL)</li>
+                    <li>Collected scattered Indonesian-English data and benchmarked models on neural machine translation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2019.01 - 2019.12</div>
+            <div class="cv-body">
+                <span class="cv-role">Laboratory Teaching Assistant</span>,
+                <span class="cv-org">Control Lab, Universitas Indonesia EE Dept.</span>
+                <span class="cv-note">Indonesia</span>
+                <ul class="cv-bullets">
+                    <li>Prepared and taught laboratory modules for the Control Engineering course</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2018.07 - 2018.08</div>
+            <div class="cv-body">
+                <span class="cv-role">Software Engineering Summer Intern</span>,
+                <span class="cv-org"><a href="https://www.nodeflux.ai/" target="_blank" rel="noopener">Nodeflux.io</a></span>
+                <span class="cv-note">Indonesia</span>
+                <ul class="cv-bullets">
+                    <li>Benchmarked different message brokers</li>
+                    <li>Set up internal monitoring tools using the ELK stack</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+
+        <div class="year-group">
+            <div class="rec" style="font-weight:700;color:var(--c-ink-2);margin-bottom:0.15rem;">2024</div>
+            <ul class="pub-list">
+
+                <li class="pub-item">
+                    <div class="pub-title"><span class="pub-label">P1</span>Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
+                    <div class="pub-authors">
+                        <span class="me">Tri Wahyu Guntara</span> and Co-authors
+                    </div>
+                    <div class="pub-venue">Under Review, NeurIPS 2024</div>
+                    <div class="pub-badges">
+                        <a href="https://anonymous.4open.science/r/anonymous-clear-EFFC/README.md" target="_blank" rel="noopener" class="pub-badge pub-badge-code"><i class="fas fa-code"></i> code</a>
+                        <a href="https://sites.google.com/view/clear-controllable-latent/home" target="_blank" rel="noopener" class="pub-badge pub-badge-website"><i class="fas fa-globe"></i> project page</a>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <div class="pub-title"><span class="pub-label">C1</span>Kernel Metric Learning for In-Sample Off-Policy Evaluation of Deterministic RL Policies</div>
+                    <div class="pub-authors">
+                        Haanvid Lee, <span class="me">Tri Wahyu Guntara</span>,
+                        <a href="https://www.jmlee.kr/" target="_blank" rel="noopener">Jongmin Lee</a>,
+                        Yung-Kyun Noh, Kee-Eung Kim
+                    </div>
+                    <div class="pub-venue">ICLR 2024</div>
+                    <div class="pub-badges">
+                        <a href="https://openreview.net/forum?id=plebgsdiiV" target="_blank" rel="noopener" class="pub-badge pub-badge-paper"><i class="fas fa-file-lines"></i> paper</a>
+                        <a href="https://github.com/haanvid/kmifqe" target="_blank" rel="noopener" class="pub-badge pub-badge-code"><i class="fas fa-code"></i> code</a>
+                        <span class="pub-badge pub-badge-award"><i class="fas fa-award"></i> Spotlight</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="year-group">
+            <div class="rec" style="font-weight:700;color:var(--c-ink-2);margin-bottom:0.15rem;">2020</div>
+            <ul class="pub-list">
+
+                <li class="pub-item">
+                    <div class="pub-title"><span class="pub-label">W1</span>Benchmarking Multidomain English-Indonesian Machine Translation</div>
+                    <div class="pub-authors">
+                        <span class="me">Tri Wahyu Guntara</span>, Alham Fikri Aji, Radityo Eko Prasojo
+                    </div>
+                    <div class="pub-venue">LREC Workshop on Building and Using Comparable Corpora (BUCC) 2020</div>
+                    <div class="pub-badges">
+                        <a href="https://aclanthology.org/2020.bucc-1.6/" target="_blank" rel="noopener" class="pub-badge pub-badge-paper"><i class="fas fa-file-lines"></i> paper</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <ul class="pub-list">
+
+            <li class="pub-item">
+                <div class="pub-title">CLEAR: Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
+                <div class="pub-authors">Master's thesis project on learning controllable latent representations that ignore visual distractions.</div>
+                <div class="pub-badges">
+                    <a href="https://sites.google.com/view/clear-controllable-latent/home" target="_blank" rel="noopener" class="pub-badge pub-badge-website"><i class="fas fa-globe"></i> project page</a>
+                </div>
+            </li>
+
+            <li class="pub-item">
+                <div class="pub-title">PALAPA-707: Universitas Indonesia Team on Indonesia Flying Robot Contest 2018</div>
+                <div class="pub-authors">Vertical take-off and landing (VTOL) category.</div>
+                <div class="pub-badges">
+                    <a href="https://sites.google.com/view/krti2018-palapa707/home" target="_blank" rel="noopener" class="pub-badge pub-badge-website"><i class="fas fa-globe"></i> project page</a>
+                </div>
+            </li>
+
+        </ul>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+        <h2 class="section-title">Scholarships &amp; Awards</h2>
+
+        <div class="cv-row">
+            <div class="cv-period">2021.09 - 2023.08</div>
+            <div class="cv-body">
+                <span class="cv-role">Hyundai Motor Chung Mong-Koo Global Scholarship</span>
+                <div class="cv-note">Full scholarship for the duration of the 2-year master's study at KAIST</div>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2018.11</div>
+            <div class="cv-body">
+                <span class="cv-role">Indonesia Flying Robot Contest 2018 — Honorable Mention</span>
+                <div class="cv-note">Vertical take-off and landing (VTOL) category</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="svc-row"><span class="svc-venue">Programming</span><span class="svc-roles">Python (PyTorch, TensorFlow), C++ (ROS, OpenCV)</span></div>
+        <div class="svc-row"><span class="svc-venue">Languages</span><span class="svc-roles">English (IELTS 8.0), Indonesian (Native)</span></div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <h2 class="section-title">Online Certifications</h2>
+
+        <div class="cv-row">
+            <div class="cv-period">2024.03</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/YS9XFN3W7GXB" target="_blank" rel="noopener">Robotics Specialization</a>
+                <span class="cv-org">— Coursera and University of Pennsylvania</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2021.10</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/9TUJ2ZKMNALZ" target="_blank" rel="noopener">TensorFlow 2 for Deep Learning Specialization</a>
+                <span class="cv-org">— Coursera and Imperial College London</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2020.11</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/EW24HV6EBDGL" target="_blank" rel="noopener">Generative Adversarial Networks Specialization</a>
+                <span class="cv-org">— Coursera and DeepLearning.AI</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2020.06</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/ZZSQG6EVSXRE" target="_blank" rel="noopener">Self-Driving Cars Specialization</a>
+                <span class="cv-org">— Coursera and University of Toronto</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2020.04</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/T4UUAUJH6H3K" target="_blank" rel="noopener">Reinforcement Learning Specialization</a>
+                <span class="cv-org">— Coursera and University of Alberta</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2020.01</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/3TQFZCAEFELE" target="_blank" rel="noopener">Modern Robotics: Mechanics, Planning, and Control Specialization</a>
+                <span class="cv-org">— Coursera and Northwestern University</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2019.12</div>
+            <div class="cv-body">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/57NARQY8EDLT" target="_blank" rel="noopener">TensorFlow Developer Specialization</a>
+                <span class="cv-org">— Coursera and DeepLearning.AI</span>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2018.05</div>
+            <div class="cv-body">
+                <a href="https://www.linkedin.com/in/wahyuguntara/details/certifications/" target="_blank" rel="noopener">Deep Learning Specialization</a>
+                <span class="cv-org">— Coursera and DeepLearning.AI</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">© Tri Wahyu Guntara</div>
+</footer>
+</body>
+</html>
