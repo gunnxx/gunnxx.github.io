@@ -80,6 +80,9 @@ section { padding-bottom: 0.6rem; }
 .cv-bullets { margin: 0.2rem 0 0; padding-left: 1.05rem; font-size: 0.9rem; color: var(--c-ink-2); }
 .cv-bullets li { padding: 0.05rem 0; }
 .cv-bullets::marker, .cv-bullets li::marker { color: var(--c-ink-3); }
+.cv-stint { margin-top: 0.45rem; }
+.cv-stint-period { font-family: var(--font-rec); font-size: 0.72rem; color: var(--c-ink-3); margin-right: 0.5rem; white-space: nowrap; }
+.cv-stint-team { font-size: 0.92rem; font-weight: 600; color: var(--c-ink-2); }
 
 .svc-row { padding: 0.22rem 0; font-size: 0.95rem; line-height: 1.5; }
 .svc-venue { font-weight: 550; color: var(--c-ink); margin-right: 0.6rem; }
