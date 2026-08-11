@@ -2,9 +2,10 @@
 
 Personal website for Tri Wahyu Guntara. Plain static HTML + CSS, no build step.
 
-- `index.html` — the whole site (styles are inline in `<head>`).
+- `index.html` — the whole site.
 - `assets/photo.jpg` — profile photo, square (~400×400 or larger). Swap the file to
   change it. If it fails to load, the hero falls back to a "TWG" initials placeholder.
+- `resume.html` / `resume.pdf` — the print CV. See "Resume" below.
 
 ## Local preview
 
@@ -24,6 +25,21 @@ Content sections in `index.html`, in order: hero/about, Education, Experience,
 Publications, Projects, Scholarships & Awards.
 Publications use `pub-label` prefixes — `C` conference, `W` workshop, `P` preprint.
 Styles live in `assets/style.css`, shared by every page.
+
+## Resume
+
+`resume.html` is a print-first, two-page CV carrying the same content as the
+homepage — it has its own inline stylesheet (A4 `@page`, ~9.6pt body) and does
+not load `assets/style.css`. Edit the HTML, then regenerate the PDF:
+
+    scripts/build-resume.sh
+
+The script serves the repo on a scratch port and drives headless Chrome
+(`--print-to-pdf`), because Chrome will not load the remote webfonts over
+`file://`. No LaTeX or pandoc needed. Links stay clickable in the PDF.
+
+`resume.html` duplicates the CV content rather than generating it from
+`index.html`, so update both when experience or publications change.
 
 ## Project pages
 

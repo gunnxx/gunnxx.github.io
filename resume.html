@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tri Wahyu Guntara — CV</title>
+<meta name="description" content="Curriculum vitae of Tri Wahyu Guntara — Applied Research Engineer (RL) at KRAFTON.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+/* Print-first CV. Palette and fonts mirror assets/style.css so the PDF reads
+   as the same document as the website. Regenerate the PDF with:
+     scripts/build-resume.sh                                                   */
+:root {
+    --c-ink: #17233b; --c-ink-2: #57627a; --c-ink-3: #93a2b8;
+    --c-line: #e3e8f0; --c-blue: #0d4ea6;
+    --font-ui: 'Pretendard Variable', Pretendard, -apple-system, 'Segoe UI', sans-serif;
+    --font-rec: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+}
+* { box-sizing: border-box; }
+
+@page { size: A4; margin: 13mm 15mm; }
+
+body {
+    margin: 0; background: #fff; color: var(--c-ink);
+    font-family: var(--font-ui); font-size: 9.6pt; line-height: 1.45;
+}
+a { color: var(--c-blue); text-decoration: none; }
+.sheet { max-width: 190mm; margin: 0 auto; padding: 10mm 8mm; }
+.rec { font-family: var(--font-rec); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+
+/* header */
+.cv-head { margin-bottom: 0.9rem; }
+.cv-name { font-size: 19pt; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.1rem; }
+.cv-headline { font-size: 10.5pt; font-weight: 600; color: var(--c-blue); margin-bottom: 0.35rem; }
+.cv-contact { font-size: 8.6pt; color: var(--c-ink-2); }
+.cv-contact a { color: var(--c-ink-2); }
+.cv-contact .sep { color: var(--c-ink-3); margin: 0 0.45rem; }
+.cv-interests { font-size: 9pt; color: var(--c-ink-2); margin-top: 0.45rem; }
+
+/* sections */
+h2.sec {
+    font-size: 9pt; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--c-ink); margin: 1.05rem 0 0.35rem;
+    padding-bottom: 0.15rem; border-bottom: 1px solid var(--c-line);
+}
+.row { display: flex; gap: 0.9rem; padding: 0.28rem 0; break-inside: avoid; page-break-inside: avoid; }
+.period { flex: 0 0 27mm; font-family: var(--font-rec); font-size: 7.8pt; color: var(--c-blue); padding-top: 0.12rem; white-space: nowrap; }
+.body { min-width: 0; flex: 1; }
+.role { font-weight: 650; }
+.org { color: var(--c-ink-2); }
+.note { font-size: 8.8pt; color: var(--c-ink-3); }
+.thesis { font-size: 8.8pt; color: var(--c-ink-2); }
+ul.bullets { margin: 0.1rem 0 0; padding-left: 0.95rem; font-size: 9pt; color: var(--c-ink-2); }
+ul.bullets li { padding: 0.02rem 0; }
+ul.bullets li::marker { color: var(--c-ink-3); }
+
+/* team stints inside one employer */
+.stint { margin-top: 0.28rem; }
+.stint-period { font-family: var(--font-rec); font-size: 7.6pt; color: var(--c-ink-3); margin-right: 0.45rem; white-space: nowrap; }
+.stint-team { font-size: 9.2pt; font-weight: 650; color: var(--c-ink-2); }
+
+/* publications */
+.pub { display: flex; gap: 0.9rem; padding: 0.3rem 0; break-inside: avoid; page-break-inside: avoid; }
+.pub-key { flex: 0 0 27mm; font-family: var(--font-rec); font-size: 7.8pt; color: var(--c-blue); padding-top: 0.12rem; }
+.pub-title { font-weight: 650; }
+.pub-authors { font-size: 8.8pt; color: var(--c-ink-2); }
+.pub-authors .me { color: var(--c-ink); font-weight: 700; }
+.pub-venue { font-family: var(--font-rec); font-size: 7.8pt; color: var(--c-ink-3); }
+.pub-venue .honor { color: var(--c-blue); font-weight: 600; }
+.pub-links { font-size: 8.2pt; }
+.pub-links a { margin-right: 0.6rem; }
+
+@media print {
+    .sheet { max-width: none; padding: 0; }
+    a { color: var(--c-blue); }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+    <header class="cv-head">
+        <h1 class="cv-name">Tri Wahyu Guntara</h1>
+        <div class="cv-headline">Applied Research Engineer (RL), KRAFTON</div>
+        <div class="cv-contact rec">
+            <a href="mailto:wahyu.guntara@gmail.com">wahyu.guntara@gmail.com</a><span class="sep">·</span><a href="https://gunnxx.github.io" target="_blank" rel="noopener">gunnxx.github.io</a><span class="sep">·</span><a href="https://github.com/gunnxx" target="_blank" rel="noopener">github.com/gunnxx</a><span class="sep">·</span><a href="https://www.linkedin.com/in/wahyuguntara/" target="_blank" rel="noopener">linkedin.com/in/wahyuguntara</a>
+        </div>
+        <div class="cv-interests">Reinforcement learning where it meets the messiness of the real world: representation
+            learning under distraction, off-policy evaluation, and multi-agent policy optimization.</div>
+    </header>
+
+    <h2 class="sec">Education</h2>
+
+    <div class="row">
+        <div class="period">2021.09 - 2024.08</div>
+        <div class="body">
+            <span class="role">M.S. in Artificial Intelligence</span>,
+            <span class="org">Korea Advanced Institute of Science and Technology (KAIST)</span>
+            <span class="note">(Advisor: Kee-Eung Kim)</span>
+            <div class="thesis">Thesis: Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2016.09 - 2020.08</div>
+        <div class="body">
+            <span class="role">B.Eng. in Electrical Engineering</span>,
+            <span class="org">Universitas Indonesia</span>
+        </div>
+    </div>
+
+    <h2 class="sec">Experience</h2>
+
+    <div class="row">
+        <div class="period">2026.07 - Present</div>
+        <div class="body">
+            <span class="role">Research Engineer</span>,
+            <span class="org"><a href="https://www.ludorobotics.ai/" target="_blank" rel="noopener">Ludo Robotics</a></span>
+            <span class="note">Seoul, South Korea</span>
+            <ul class="bullets">
+                <li>Concurrent position, dispatched from KRAFTON to Ludo Robotics, a robotics spin-off of the company</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2024.11 - Present</div>
+        <div class="body">
+            <span class="role">Applied Research Engineer (RL)</span>,
+            <span class="org"><a href="https://www.krafton.com/en/" target="_blank" rel="noopener">KRAFTON Inc.</a></span>
+            <span class="note">Seoul, South Korea</span>
+            <div class="stint">
+                <span class="stint-period rec">2025.12 - Present</span>
+                <span class="stint-team">Physical AI Team</span>
+                <ul class="bullets">
+                    <li>RL for sim2real and vision-language-action (VLA) models</li>
+                </ul>
+            </div>
+            <div class="stint">
+                <span class="stint-period rec">2024.11 - 2025.11</span>
+                <span class="stint-team">Reinforcement Learning Team</span>
+                <ul class="bullets">
+                    <li>RL agents for PUBG and PUBG: Blindspot</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2023.01 - 2024.08</div>
+        <div class="body">
+            <span class="role">Graduate Student Research Assistant</span>,
+            <span class="org"><a href="https://ailab.kaist.ac.kr/" target="_blank" rel="noopener">Artificial Intelligence &amp; Probabilistic Reasoning Lab</a>, KAIST</span>
+            <span class="note">South Korea</span>
+            <ul class="bullets">
+                <li>Reinforcement learning and thesis project under the advisory of Prof. Kee-Eung Kim</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2022.01 - 2022.12</div>
+        <div class="body">
+            <span class="role">Graduate Student Research Assistant</span>,
+            <span class="org"><a href="https://ave.kaist.ac.kr/" target="_blank" rel="noopener">Autonomous Vehicles and Embedded Systems Lab</a>, KAIST</span>
+            <span class="note">South Korea</span>
+            <ul class="bullets">
+                <li>Self-driving car and reinforcement learning under the advisory of Prof. Seung-Hyun Kong</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2019.06 - 2019.12</div>
+        <div class="body">
+            <span class="role">Research Scientist Intern</span>,
+            <span class="org"><a href="https://kata.ai/" target="_blank" rel="noopener">Kata.ai</a></span>
+            <span class="note">Indonesia</span>
+            <ul class="bullets">
+                <li>Benchmarked models on Indonesian sequence labeling tasks (POS tagging, NER, SRL)</li>
+                <li>Collected scattered Indonesian-English data and benchmarked models on neural machine translation</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="sec">Publications</h2>
+
+    <div class="pub">
+        <div class="pub-key">C2 &nbsp;2026</div>
+        <div class="body">
+            <div class="pub-title">ACPO: Agent-Chained Policy Optimization for Multi-Agent Reinforcement Learning</div>
+            <div class="pub-authors">Daiki E. Matsunaga, Junho Na, <span class="me">Tri Wahyu Guntara</span>, Scott Sanner,
+                Pascal Poupart, Jongmin Lee, Kee-Eung Kim</div>
+            <div class="pub-venue">Reinforcement Learning Conference (RLC) 2026</div>
+            <div class="pub-links"><a href="https://arxiv.org/abs/2606.30072" target="_blank" rel="noopener">paper</a></div>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-key">P1 &nbsp;2025</div>
+        <div class="body">
+            <div class="pub-title">CLEAR: An Information-Theoretic Framework for Distraction-Free Representation Learning
+                in Visual Offline RL</div>
+            <div class="pub-authors"><span class="me">Tri Wahyu Guntara</span>, Daiki E. Matsunaga, HyeongJoo Hwang,
+                Kee-Eung Kim</div>
+            <div class="pub-venue">Preprint</div>
+            <div class="pub-links">
+                <a href="https://openreview.net/forum?id=Pui7Sa6Jwi" target="_blank" rel="noopener">paper</a>
+                <a href="https://anonymous.4open.science/r/anonymous-clear-EFFC/README.md" target="_blank" rel="noopener">code</a>
+                <a href="https://gunnxx.github.io/projects/clear/" target="_blank" rel="noopener">project page</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-key">C1 &nbsp;2024</div>
+        <div class="body">
+            <div class="pub-title">Kernel Metric Learning for In-Sample Off-Policy Evaluation of Deterministic RL Policies</div>
+            <div class="pub-authors">Haanvid Lee, <span class="me">Tri Wahyu Guntara</span>, Jongmin Lee, Yung-Kyun Noh,
+                Kee-Eung Kim</div>
+            <div class="pub-venue">ICLR 2024 <span class="honor">· Spotlight</span></div>
+            <div class="pub-links">
+                <a href="https://openreview.net/forum?id=plebgsdiiV" target="_blank" rel="noopener">paper</a>
+                <a href="https://github.com/haanvid/kmifqe" target="_blank" rel="noopener">code</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-key">W1 &nbsp;2020</div>
+        <div class="body">
+            <div class="pub-title">Benchmarking Multidomain English-Indonesian Machine Translation</div>
+            <div class="pub-authors"><span class="me">Tri Wahyu Guntara</span>, Alham Fikri Aji, Radityo Eko Prasojo</div>
+            <div class="pub-venue">LREC Workshop on Building and Using Comparable Corpora (BUCC) 2020</div>
+            <div class="pub-links"><a href="https://aclanthology.org/2020.bucc-1.6/" target="_blank" rel="noopener">paper</a></div>
+        </div>
+    </div>
+
+    <h2 class="sec">Projects</h2>
+
+    <div class="pub">
+        <div class="pub-key">2024</div>
+        <div class="body">
+            <div class="pub-title">CLEAR: Controllable Latent State Extractor for Visual Offline RL</div>
+            <div class="pub-authors">Master's thesis project on learning agent-centric latent representations that remain
+                robust when the visual observation is full of distractions.</div>
+            <div class="pub-links">
+                <a href="https://gunnxx.github.io/projects/clear/" target="_blank" rel="noopener">project page</a>
+                <a href="https://openreview.net/forum?id=Pui7Sa6Jwi" target="_blank" rel="noopener">paper</a>
+                <a href="https://anonymous.4open.science/r/anonymous-clear-EFFC/README.md" target="_blank" rel="noopener">code</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-key">2018</div>
+        <div class="body">
+            <div class="pub-title">PALAPA-707: An Autonomous VTOL Drone for the Indonesia Flying Robot Contest 2018</div>
+            <div class="pub-authors">Undergraduate team project at Universitas Indonesia: an autonomous drone for payload
+                pick-up and delivery, built around a PID controller with vision-based target detection.</div>
+            <div class="pub-links">
+                <a href="https://gunnxx.github.io/projects/palapa-707/" target="_blank" rel="noopener">project page</a>
+                <a href="https://github.com/gunnxx/palapa707" target="_blank" rel="noopener">source code</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="sec">Scholarships &amp; Awards</h2>
+
+    <div class="row">
+        <div class="period">2021.09 - 2023.08</div>
+        <div class="body">
+            <span class="role">Hyundai Motor Chung Mong-Koo Global Scholarship</span>
+            <div class="note">Full scholarship for the duration of the 2-year master's study at KAIST</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="period">2018.11</div>
+        <div class="body">
+            <span class="role">Indonesia Flying Robot Contest 2018 — Honorable Mention</span>
+            <div class="note">Vertical take-off and landing (VTOL) category</div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
