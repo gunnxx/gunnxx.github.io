@@ -3,8 +3,8 @@
 Personal website for Tri Wahyu Guntara. Plain static HTML + CSS, no build step.
 
 - `index.html` — the whole site (styles are inline in `<head>`).
-- `assets/photo.jpg` — profile photo. Not committed yet; drop a square headshot here
-  (~400×400 or larger). Until it exists, the hero shows a "TWG" initials placeholder.
+- `assets/photo.jpg` — profile photo, square (~400×400 or larger). Swap the file to
+  change it. If it fails to load, the hero falls back to a "TWG" initials placeholder.
 
 ## Local preview
 
