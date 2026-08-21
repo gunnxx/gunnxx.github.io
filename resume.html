@@ -37,6 +37,8 @@ a { color: var(--c-blue); text-decoration: none; }
 .cv-contact a { color: var(--c-ink-2); }
 .cv-contact .sep { color: var(--c-ink-3); margin: 0 0.45rem; }
 .cv-interests { font-size: 9pt; color: var(--c-ink-2); margin-top: 0.45rem; }
+.cv-interests div + div { margin-top: 0.1rem; }
+.cv-label { font-weight: 700; color: var(--c-ink); }
 
 /* sections */
 h2.sec {
@@ -86,8 +88,13 @@ ul.bullets li::marker { color: var(--c-ink-3); }
         <div class="cv-contact rec">
             <a href="mailto:wahyu.guntara@gmail.com">wahyu.guntara@gmail.com</a><span class="sep">·</span><a href="https://gunnxx.github.io" target="_blank" rel="noopener">gunnxx.github.io</a><span class="sep">·</span><a href="https://github.com/gunnxx" target="_blank" rel="noopener">github.com/gunnxx</a><span class="sep">·</span><a href="https://www.linkedin.com/in/wahyuguntara/" target="_blank" rel="noopener">linkedin.com/in/wahyuguntara</a>
         </div>
-        <div class="cv-interests">Reinforcement learning where it meets the messiness of the real world: representation
-            learning under distraction, off-policy evaluation, and multi-agent policy optimization.</div>
+        <div class="cv-interests">
+            <div><span class="cv-label">Research interests:</span> making reinforcement learning work outside benchmark
+                conditions — from agents shipped in games to sim2real transfer on physical robots.</div>
+            <div><span class="cv-label">Experience:</span> state, action, and reward design for game environments;
+                sim2real and vision-language-action (VLA) models for robot control; information-theoretic
+                representation learning; multi-agent policy optimization.</div>
+        </div>
     </header>
 
     <h2 class="sec">Education</h2>
