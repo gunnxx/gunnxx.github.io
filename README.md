@@ -29,10 +29,16 @@ Styles live in `assets/style.css`, shared by every page.
 ## Resume
 
 `resume.html` is a print-first, two-page CV carrying the same content as the
-homepage — it has its own inline stylesheet (A4 `@page`, ~9.6pt body) and does
-not load `assets/style.css`. Edit the HTML, then regenerate the PDF:
+homepage in a classic single-column layout: one typeface at 10.5pt, near-black
+text, titles at the left margin with dates flush right, team or lab stints
+nested under a role, and numbered publications. It has its own inline
+stylesheet (A4 `@page`) and does not load `assets/style.css`. Edit the HTML,
+then regenerate the PDF:
 
     scripts/build-resume.sh
+
+The script takes an optional page name (`scripts/build-resume.sh foo` renders
+`foo.html` to `foo.pdf`), which is handy for trying an alternative layout.
 
 The script serves the repo on a scratch port and drives headless Chrome
 (`--print-to-pdf`), because Chrome will not load the remote webfonts over

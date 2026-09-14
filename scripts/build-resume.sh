@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Render resume.html to resume.pdf with headless Chrome.
+# Pass another base name to render a different page, e.g.
+#   scripts/build-resume.sh resume-classic   ->  resume-classic.pdf
 # Chrome refuses to print file:// pages with remote fonts, so serve the repo
 # on a scratch port for the length of the render.
 set -euo pipefail
@@ -7,6 +9,7 @@ set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 chrome="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 port=8791
+name="${1:-resume}"
 
 [ -x "$chrome" ] || { echo "Google Chrome not found at $chrome" >&2; exit 1; }
 
@@ -15,13 +18,13 @@ server=$!
 trap 'kill "$server" 2>/dev/null || true' EXIT
 
 for _ in $(seq 30); do
-    curl -sf -o /dev/null "http://127.0.0.1:$port/resume.html" && break
+    curl -sf -o /dev/null "http://127.0.0.1:$port/$name.html" && break
     sleep 0.2
 done
 
 "$chrome" --headless --disable-gpu --no-pdf-header-footer \
     --virtual-time-budget=10000 \
-    --print-to-pdf="$root/resume.pdf" \
-    "http://127.0.0.1:$port/resume.html" 2>/dev/null
+    --print-to-pdf="$root/$name.pdf" \
+    "http://127.0.0.1:$port/$name.html" 2>/dev/null
 
-echo "wrote $root/resume.pdf"
+echo "wrote $root/$name.pdf"
