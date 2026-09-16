@@ -21,15 +21,15 @@ Push to `main`. GitHub Pages serves a user site from the repository root
 
 ## Editing
 
-Content sections in `index.html`, in order: hero/about, Education, Experience,
-Publications, Projects, Scholarships & Awards.
+Content sections in `index.html`, in order: hero/about, Experience, Publications,
+Education, Projects, Scholarships & Awards.
 Publications use `pub-label` prefixes — `C` conference, `W` workshop, `P` preprint.
 Styles live in `assets/style.css`, shared by every page.
 
 ## Resume
 
 `resume.html` is a print-first, two-page CV carrying the same content as the
-homepage in a classic single-column layout: one typeface at 10.5pt, near-black
+homepage in a classic single-column layout: one typeface at 10pt, near-black
 text, titles at the left margin with dates flush right, team or lab stints
 nested under a role, and numbered publications. It has its own inline
 stylesheet (A4 `@page`) and does not load `assets/style.css`. Edit the HTML,

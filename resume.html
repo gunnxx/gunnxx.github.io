@@ -6,9 +6,10 @@
 <title>Tri Wahyu Guntara — CV</title>
 <meta name="description" content="Curriculum vitae of Tri Wahyu Guntara — Applied Research Engineer (RL) at KRAFTON.">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 /* Classic single-column CV, tuned for readability:
-   - one typeface, 10.5pt body, near-black text; grey only for locations and notes
+   - one typeface, 10pt body, near-black text; grey only for locations and notes
    - titles start at the left margin, dates sit flush right on the same line
    - solid rules under section headings, real bullets, generous spacing
    Regenerate the PDF with:
@@ -20,16 +21,16 @@
 }
 * { box-sizing: border-box; }
 
-@page { size: A4; margin: 12mm 16mm 13mm; }
+@page { size: A4; margin: 10mm 14mm 10mm; }
 
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
     margin: 0; background: #fff; color: var(--ink);
-    font-family: var(--font); font-size: 10.5pt; line-height: 1.38;
+    font-family: var(--font); font-size: 10pt; line-height: 1.35;
     font-variant-numeric: tabular-nums; text-rendering: optimizeLegibility;
 }
 a { color: var(--link); text-decoration: none; }
-.sheet { max-width: 178mm; margin: 0 auto; padding: 12mm 0; }
+.sheet { max-width: 182mm; margin: 0 auto; padding: 12mm 0; }
 
 /* header */
 .head { text-align: center; margin-bottom: 0.75rem; }
@@ -38,6 +39,7 @@ a { color: var(--link); text-decoration: none; }
 .contact { font-size: 9.8pt; color: var(--ink-2); }
 .contact a { color: var(--ink-2); }
 .contact .sep { color: var(--ink-3); margin: 0 0.5rem; }
+.contact i { font-size: 9pt; color: var(--ink-3); margin-right: 0.3rem; }
 
 .summary { margin: 0 0 0.35rem; color: var(--ink); }
 .summary b { font-weight: 700; }
@@ -45,7 +47,7 @@ a { color: var(--link); text-decoration: none; }
 /* sections */
 h2 {
     font-size: 11pt; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase;
-    margin: 0.95rem 0 0.45rem; padding-bottom: 0.15rem; border-bottom: 1.4px solid var(--rule);
+    margin: 0.85rem 0 0.4rem; padding-bottom: 0.15rem; border-bottom: 1.4px solid var(--rule);
     break-after: avoid; page-break-after: avoid;
 }
 
@@ -99,43 +101,13 @@ ol.pubs li::before { content: "[" counter(pub) "]"; position: absolute; left: -1
         <h1 class="name">Tri Wahyu Guntara</h1>
         <div class="headline">Applied Research Engineer (RL), KRAFTON</div>
         <div class="contact">
-            <a href="mailto:wahyu.guntara@gmail.com">wahyu.guntara@gmail.com</a><span class="sep">|</span><a href="https://gunnxx.github.io" target="_blank" rel="noopener">gunnxx.github.io</a><span class="sep">|</span><a href="https://www.linkedin.com/in/wahyuguntara/" target="_blank" rel="noopener">linkedin.com/in/wahyuguntara</a>
+            <a href="mailto:wahyu.guntara@gmail.com"><i class="fas fa-envelope"></i>wahyu.guntara@gmail.com</a><span class="sep">|</span><a href="https://gunnxx.github.io" target="_blank" rel="noopener"><i class="fas fa-globe"></i>gunnxx.github.io</a><span class="sep">|</span><a href="https://www.linkedin.com/in/wahyuguntara/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>linkedin.com/in/wahyuguntara</a>
         </div>
     </header>
 
-    <p class="summary"><b>Research interests.</b> Making reinforcement learning work outside benchmark
-        conditions, from agents shipped in games to sim2real transfer on physical robots.</p>
-    <p class="summary"><b>Experience.</b> State, action, and reward design for game environments;
+    <p class="summary"><b>Expertise.</b> State, action, and reward design for game environments;
         sim2real and vision-language-action (VLA) models for robot control; information-theoretic
         representation learning; multi-agent policy optimization.</p>
-
-    <h2>Education</h2>
-
-    <div class="entry">
-        <div class="line">
-            <span class="title">M.S. in Artificial Intelligence</span>
-            <span class="date">Sep 2021 – Aug 2024</span>
-        </div>
-        <div class="line sub">
-            <span class="org">Korea Advanced Institute of Science and Technology (KAIST)</span>
-            <span class="loc">South Korea</span>
-        </div>
-        <ul>
-            <li>Advisor: Prof. Kee-Eung Kim</li>
-            <li>Thesis: <i>Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</i></li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="line">
-            <span class="title">B.Eng. in Electrical Engineering</span>
-            <span class="date">Sep 2016 – Aug 2020</span>
-        </div>
-        <div class="line sub">
-            <span class="org">Universitas Indonesia</span>
-            <span class="loc">Indonesia</span>
-        </div>
-    </div>
 
     <h2>Experience</h2>
 
@@ -148,11 +120,15 @@ ol.pubs li::before { content: "[" counter(pub) "]"; position: absolute; left: -1
             <span class="org"><a href="https://www.ludorobotics.ai/" target="_blank" rel="noopener">Ludo Robotics</a></span>
             <span class="loc">Seoul, South Korea</span>
         </div>
+        <div class="note">Concurrent role, on dispatch from KRAFTON.</div>
         <ul>
-            <li>Concurrent position, dispatched from KRAFTON to Ludo Robotics, a robotics spin-off of the company.</li>
-            <li>Vision-language-action (VLA) policies and systems integration for the real-robot deployment of
+            <li>Built a Pico VR teleoperation system for the Unitree G1 humanoid with locomotion, waist, and arm
+                control, used to collect real-robot data.</li>
+            <li>Fine-tuned vision-language-action (VLA) models on the collected data and deployed them on the
+                Unitree G1.</li>
+            <li>Systems integration for
                 <a href="https://www.ludorobotics.ai/research/ludi-0-1" target="_blank" rel="noopener">Ludi 0.1</a>,
-                an agentic system for socially intelligent robots.</li>
+                an agentic system for socially intelligent robots, on the real robot.</li>
         </ul>
     </div>
 
@@ -172,7 +148,14 @@ ol.pubs li::before { content: "[" counter(pub) "]"; position: absolute; left: -1
                 <span class="date">Dec 2025 – Present</span>
             </div>
             <ul>
-                <li>RL for sim2real and vision-language-action (VLA) models.</li>
+                <li>Trained RL agents for non-perceptive locomotion, and for perceptive navigation on top of the
+                    locomotion policy, on the Unitree G1 humanoid.</li>
+                <li>Fine-tuned GR00T and π-family vision-language-action (VLA) models on the AgiBot G1 humanoid in
+                    simulation and added a <a href="https://arxiv.org/abs/2510.00695" target="_blank" rel="noopener">HAMLET</a>
+                    memory module, which significantly improved task success.</li>
+                <li>Owned the simulation evaluation pipeline: ported GenieSim, an asynchronous Isaac Sim environment
+                    for the AgiBot G1, to a synchronous Isaac Lab implementation that runs parallel instances for
+                    scalable evaluation.</li>
             </ul>
         </div>
         <div class="stint">
@@ -181,7 +164,15 @@ ol.pubs li::before { content: "[" counter(pub) "]"; position: absolute; left: -1
                 <span class="date">Nov 2024 – Nov 2025</span>
             </div>
             <ul>
-                <li>RL agents for PUBG and PUBG: Blindspot.</li>
+                <li>Trained an RL agent for the PUBG parachute-landing task to replace the rule-based bot, cutting mean
+                    landing error from 40 / 60 / 523 m to 18 / 19 / 24 m on short (&lt;1 km), medium (1–1.7 km), and
+                    far (&gt;1.7 km) drops.</li>
+                <li>Trained an RL agent that plays the full PUBG game, deployed as the
+                    <a href="https://www.etnews.com/20251217000493" target="_blank" rel="noopener">PUBG AI Chicken Challenge</a>,
+                    a limited-time player-vs-AI event at PUBG UNITED: HOMECOMING (Dec 2025 – Jan 2026).</li>
+                <li>Early development of a full-game RL agent for
+                    <a href="https://www.gamechosun.co.kr/webzine/article/view.php?no=216063" target="_blank" rel="noopener">PUBG: Blindspot</a>,
+                    a top-down tactical shooter in development at KRAFTON.</li>
             </ul>
         </div>
         </div>
@@ -284,6 +275,34 @@ ol.pubs li::before { content: "[" counter(pub) "]"; position: absolute; left: -1
             <div class="links"><a href="https://aclanthology.org/2020.bucc-1.6/" target="_blank" rel="noopener">paper</a></div>
         </li>
     </ol>
+
+    <h2>Education</h2>
+
+    <div class="entry">
+        <div class="line">
+            <span class="title">M.S. in Artificial Intelligence</span>
+            <span class="date">Sep 2021 – Aug 2024</span>
+        </div>
+        <div class="line sub">
+            <span class="org">Korea Advanced Institute of Science and Technology (KAIST)</span>
+            <span class="loc">South Korea</span>
+        </div>
+        <ul>
+            <li>Advisor: Prof. Kee-Eung Kim</li>
+            <li>Thesis: <i>Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</i></li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="line">
+            <span class="title">B.Eng. in Electrical Engineering</span>
+            <span class="date">Sep 2016 – Aug 2020</span>
+        </div>
+        <div class="line sub">
+            <span class="org">Universitas Indonesia</span>
+            <span class="loc">Indonesia</span>
+        </div>
+    </div>
 
     <h2>Projects</h2>
 

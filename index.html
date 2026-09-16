@@ -38,12 +38,11 @@
                 <h1 class="hero-name">Tri Wahyu Guntara</h1>
                 <div class="hero-title">Applied Research Engineer (RL), KRAFTON</div>
                 <p class="hero-bio">I build reinforcement learning agents at
-                    <a href="https://www.krafton.com/en/" target="_blank" rel="noopener">KRAFTON</a> — for games
-                    (PUBG and PUBG: Blindspot) and for physical AI, where I work on RL and vision-language-action
-                    models. Before that I did my master's at KAIST, advised by
-                    <a href="https://ailab.kaist.ac.kr/people/kekim" target="_blank" rel="noopener">Kee-Eung Kim</a>.
-                    My research interests sit where RL meets the messiness of the real world: representation learning
-                    under distraction, off-policy evaluation, and multi-agent policy optimization.</p>
+                    <a href="https://www.krafton.com/en/" target="_blank" rel="noopener">KRAFTON</a>, first for games
+                    (PUBG) and now for humanoid robots, and I am currently on dispatch to
+                    <a href="https://www.ludorobotics.ai/" target="_blank" rel="noopener">Ludo Robotics</a>, KRAFTON's
+                    robotics spin-off. I did my master's at KAIST, advised by
+                    <a href="https://ailab.kaist.ac.kr/people/kekim" target="_blank" rel="noopener">Kee-Eung Kim</a>.</p>
                 <div class="hero-contact">
                     <i class="fas fa-envelope" style="color:var(--c-ink-3)"></i>
                     <a class="rec" href="mailto:wahyu.guntara@gmail.com">wahyu.guntara@gmail.com</a>
@@ -57,30 +56,8 @@
 
     </section>
 
-    <!-- CV: Education → Experience → Awards → Skills -->
+    <!-- CV: Experience → Publications → Education → Projects → Awards -->
     <section id="cv">
-        <h2 class="section-title">Education</h2>
-
-        <div class="cv-row">
-            <div class="cv-period">2021.09 - 2024.08</div>
-            <div class="cv-body">
-                <span class="cv-role">M.S. in Artificial Intelligence</span>,
-                <span class="cv-org">Korea Advanced Institute of Science and Technology (KAIST)</span>
-                <span class="cv-note">(Advisor: Kee-Eung Kim)</span>
-                <div class="cv-thesis">Thesis: Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-period">2016.09 - 2020.08</div>
-            <div class="cv-body">
-                <span class="cv-role">B.Eng. in Electrical Engineering</span>,
-                <span class="cv-org">Universitas Indonesia</span>
-            </div>
-        </div>
-    </section>
-
-    <section>
         <h2 class="section-title">Experience</h2>
 
         <div class="cv-row">
@@ -89,9 +66,11 @@
                 <span class="cv-role">Research Engineer</span>,
                 <span class="cv-org"><a href="https://www.ludorobotics.ai/" target="_blank" rel="noopener">Ludo Robotics</a></span>
                 <span class="cv-note">Seoul, South Korea</span>
+                <div class="cv-thesis">Concurrent role, on dispatch from KRAFTON</div>
                 <ul class="cv-bullets">
-                    <li>Concurrent position, dispatched from KRAFTON to Ludo Robotics, a robotics spin-off of the company</li>
-                    <li>Vision-language-action (VLA) policies and systems integration for real-robot deployment of <a href="https://www.ludorobotics.ai/research/ludi-0-1" target="_blank" rel="noopener">Ludi 0.1</a>, an agentic system for socially intelligent robots</li>
+                    <li>Built a Pico VR teleoperation system for the Unitree G1 humanoid with locomotion, waist, and arm control, used to collect real-robot data</li>
+                    <li>Fine-tuned vision-language-action (VLA) models on the collected data and deployed them on the Unitree G1</li>
+                    <li>Systems integration for <a href="https://www.ludorobotics.ai/research/ludi-0-1" target="_blank" rel="noopener">Ludi 0.1</a>, an agentic system for socially intelligent robots, on the real robot</li>
                 </ul>
             </div>
         </div>
@@ -106,14 +85,18 @@
                     <span class="cv-stint-period">2025.12 - Present</span>
                     <span class="cv-stint-team">Physical AI Team</span>
                     <ul class="cv-bullets">
-                        <li>RL for sim2real and vision-language-action (VLA) models</li>
+                        <li>Trained RL agents for non-perceptive locomotion, and for perceptive navigation on top of the locomotion policy, on the Unitree G1 humanoid</li>
+                        <li>Fine-tuned GR00T and &pi;-family vision-language-action (VLA) models on the AgiBot G1 humanoid in simulation and added a <a href="https://arxiv.org/abs/2510.00695" target="_blank" rel="noopener">HAMLET</a> memory module, which significantly improved task success</li>
+                        <li>Owned the simulation evaluation pipeline: ported GenieSim, an asynchronous Isaac Sim environment for the AgiBot G1, to a synchronous Isaac Lab implementation that runs parallel instances for scalable evaluation</li>
                     </ul>
                 </div>
                 <div class="cv-stint">
                     <span class="cv-stint-period">2024.11 - 2025.11</span>
                     <span class="cv-stint-team">Reinforcement Learning Team</span>
                     <ul class="cv-bullets">
-                        <li>RL agents for PUBG and PUBG: Blindspot</li>
+                        <li>Trained an RL agent for the PUBG parachute-landing task to replace the rule-based bot, cutting mean landing error from 40 / 60 / 523 m to 18 / 19 / 24 m on short (&lt;1 km), medium (1&ndash;1.7 km), and far (&gt;1.7 km) drops</li>
+                        <li>Trained an RL agent that plays the full PUBG game, deployed as the <a href="https://www.etnews.com/20251217000493" target="_blank" rel="noopener">PUBG AI Chicken Challenge</a>, a limited-time player-vs-AI event at PUBG UNITED: HOMECOMING (Dec 2025 &ndash; Jan 2026)</li>
+                        <li>Early development of a full-game RL agent for <a href="https://www.gamechosun.co.kr/webzine/article/view.php?no=216063" target="_blank" rel="noopener">PUBG: Blindspot</a>, a top-down tactical shooter in development at KRAFTON</li>
                     </ul>
                 </div>
             </div>
@@ -158,6 +141,7 @@
     </section>
 
     <!-- Publications -->
+
     <section id="publications">
         <h2 class="section-title">Publications</h2>
 
@@ -267,6 +251,29 @@
     </section>
 
     <!-- Projects -->
+
+    <section>
+        <h2 class="section-title">Education</h2>
+
+        <div class="cv-row">
+            <div class="cv-period">2021.09 - 2024.08</div>
+            <div class="cv-body">
+                <span class="cv-role">M.S. in Artificial Intelligence</span>,
+                <span class="cv-org">Korea Advanced Institute of Science and Technology (KAIST)</span>
+                <span class="cv-note">(Advisor: Kee-Eung Kim)</span>
+                <div class="cv-thesis">Thesis: Information-Theoretic Distraction-Free Representation Learning for Visual Offline RL</div>
+            </div>
+        </div>
+
+        <div class="cv-row">
+            <div class="cv-period">2016.09 - 2020.08</div>
+            <div class="cv-body">
+                <span class="cv-role">B.Eng. in Electrical Engineering</span>,
+                <span class="cv-org">Universitas Indonesia</span>
+            </div>
+        </div>
+    </section>
+
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <ul class="pub-list">
@@ -309,6 +316,7 @@
     </section>
 
     <!-- Awards -->
+
     <section id="awards">
         <h2 class="section-title">Scholarships &amp; Awards</h2>
 
