@@ -84,6 +84,18 @@ section { padding-bottom: 0.6rem; }
 .cv-stint { margin-top: 0.45rem; }
 .cv-stint-period { font-family: var(--font-rec); font-size: 0.72rem; color: var(--c-ink-3); margin-right: 0.5rem; white-space: nowrap; }
 .cv-stint-team { font-size: 0.92rem; font-weight: 600; color: var(--c-ink-2); }
+/* collapsible experience details (closed by default) */
+.cv-details { margin-top: 0.2rem; }
+.cv-details > summary, .cv-stint > summary { cursor: pointer; list-style: none; user-select: none; }
+.cv-details > summary::-webkit-details-marker, .cv-stint > summary::-webkit-details-marker { display: none; }
+.cv-details > summary { display: inline-block; font-size: 0.82rem; color: var(--c-ink-3); }
+.cv-details > summary:hover { color: var(--c-blue); }
+.cv-details > summary::before, .cv-stint > summary::before {
+    content: '\25B8'; display: inline-block; width: 0.9rem; color: var(--c-ink-3);
+    transition: transform 0.15s ease;
+}
+.cv-details[open] > summary::before, .cv-stint[open] > summary::before { transform: rotate(90deg); }
+.cv-details > .cv-bullets, .cv-stint > .cv-bullets { margin-left: 0.9rem; }
 
 .svc-row { padding: 0.22rem 0; font-size: 0.95rem; line-height: 1.5; }
 .svc-venue { font-weight: 550; color: var(--c-ink); margin-right: 0.6rem; }
