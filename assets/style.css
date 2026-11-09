@@ -126,6 +126,16 @@ section { padding-bottom: 0.6rem; }
 .pub-badge-website { background: #e9f6fa;             color: #0e7490;        border-color: #c5e8f0; }
 .pub-badge-award   { background: var(--c-amber-soft); color: var(--c-amber); border-color: #f3ddb0; }
 
+/* projects: landscape media beside the text */
+.project-item { display: flex; gap: 1.1rem; align-items: flex-start; }
+.project-thumb { flex: 0 0 240px; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--c-line); background: #0b0f18; }
+.project-thumb video, .project-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.project-body { min-width: 0; }
+@media (max-width: 640px) {
+    .project-item { flex-direction: column; gap: 0.6rem; }
+    .project-thumb { flex: none; width: 100%; }
+}
+
 footer { border-top: 1px solid var(--c-line); margin-top: 2.5rem; padding: 1.4rem 0 2.5rem; color: var(--c-ink-3); font-size: 0.85rem; }
 
 @media (max-width: 640px) {
